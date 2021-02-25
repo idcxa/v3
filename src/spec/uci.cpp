@@ -15,7 +15,7 @@ namespace {
 
     const char* startpos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
-    void position(istringstream &is) {
+    void position(std::istringstream &is) {
 
         string token, fen;
         is >> token;
