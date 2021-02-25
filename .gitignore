@@ -1,6 +1,6 @@
 # Compiled source files & other misc. junk
-*a.out*
 a.out
+a.out.dSYM/
 
 .DS_Store
 .discover
