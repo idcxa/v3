@@ -42,7 +42,7 @@
 #include "algorithm"
 
 //#include "main.hpp"
-#include "spec/fixtures/uci.hpp"
+#include "spec/uci.hpp"
 
 #define PROJECT_NAME "ChessTrainer.c++"
 
