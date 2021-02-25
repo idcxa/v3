@@ -13,7 +13,7 @@ void Position::set(string FEN, string play) {
     /* loop through FEN */
     while (ss >> token) {
         cout << token;
-    }
+    }origin/testing
     cout << endl;
     Bitboard test;
 
