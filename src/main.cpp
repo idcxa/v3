@@ -56,7 +56,7 @@ namespace CT
 		void setup();
 		void loop();
 	};
-	
+
 };
 
 using namespace CT; ChessEngine ct;

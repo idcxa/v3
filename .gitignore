@@ -3,6 +3,7 @@ a.out
 a.out.dSYM/
 *.out
 *.o
+ctengine
 
 .DS_Store
 .discover
@@ -12,3 +13,6 @@ build
 builddir
 
 *.gch
+
+#misc
+Stockfish/
