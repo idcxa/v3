@@ -11,7 +11,9 @@
  *
 **/
 
-void bitscan();
+namespace Position {
+    void set();
+}
 
 class Bitboard {
 private:

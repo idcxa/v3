@@ -43,6 +43,7 @@
 
 //#include "main.hpp"
 #include "spec/uci.hpp"
+#include "spec/position.hpp"
 
 #define PROJECT_NAME "ChessTrainer.c++"
 
@@ -70,6 +71,7 @@ int main(int argc, char* argv[]) {
     /* Search, decides which moves look most promising to calculate first */
 
     /* Evaluator */
+    Position::set();
 
     UCI::loop(argc, argv);
 
