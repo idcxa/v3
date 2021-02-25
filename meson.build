@@ -3,7 +3,7 @@ project('ct', 'cpp',
   default_options : ['warning_level=3',
                      'cpp_std=c++20'])
 
-exe = executable('ct', 'ct.cpp',
+exe = executable('ct', 'src/ct.c++',
   install : false)
 
 test('basic', exe)
