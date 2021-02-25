@@ -1,7 +1,13 @@
 # CT.cpp
 
-### Compiling
+## Compiling
 The project uses both Meson & CMake for your convenience.
 
-#### OSX /MacOS
-`make OSX; make install`
+### Meson
+`meson build; ninja -C "build" install`
+
+### OSX/ GNU + Linux
+`make OSX`
+
+### Windows
+See Meson build instructions.

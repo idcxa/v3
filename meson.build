@@ -6,13 +6,15 @@ project('CTEngine', 'cpp',
 
 add_global_arguments('-lstdc++', '-O', language : 'cpp')
 
-sources = ['src/main.cpp', 'src/spec/uci.cpp']
+sources = ['src/main.cpp', 
+			'src/spec/uci.cpp',
+			'src/spec/position.cpp']
 pkgmod = import('pkgconfig')
 
 incdir = include_directories(['src',
 							  'src/spec'])
 
-exe = executable('ctengine', 'src/main.cpp',
+exe = executable('ctengine', sources,
   install : false)
 
 test('basic', exe)

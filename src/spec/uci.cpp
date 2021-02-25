@@ -7,10 +7,9 @@
 
 #include "uci.hpp"
 
-using namespace std;
-
 #define VERS "0.1"
 
+using namespace std;
 namespace {
 
     const char* startpos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";

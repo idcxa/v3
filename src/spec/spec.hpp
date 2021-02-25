@@ -1,6 +1,6 @@
 # pragma once
 
-#include "fixtures/bitboard.c++"
+#include "spec.cpp"
 namespace Spec {	
 // Specifications for how the board is laid out, 
 // the logic, etc

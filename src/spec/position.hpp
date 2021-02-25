@@ -1,8 +1,7 @@
 #include "iostream"
+#include "bitset"
+#include "cassert"
 #include "cstdint"
-
-#include "position.hpp"
-
 
 /**	! Stuff we need	**
  *
@@ -12,22 +11,15 @@
  *
 **/
 
-class Position {
-public:
-
-private:
-
-};
-
 class BitBoard {
 private:
-        std::bitset<64> board;
-	void initalise();
+    std::bitset<64> board;
+	void initalise ();
 public:
-    auto operator()(int x, int y){
-        assert(0<=x && x <=7);
-        assert(0<=y && y <=7);
-        return board[8*y+x];
+    auto operator () (int x, int y){
+        assert( 0 <= x && x <= 7);
+        assert( 0 <= y && y <=7);
+        return board [ 8 * y + x ];
     }
 	auto output (int x, int y);
 	auto innerIterator (int x, int y);
