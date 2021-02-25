@@ -12,7 +12,7 @@
 **/
 
 namespace Position {
-    void set();
+    void set(std::string FEN, std::string play);
 }
 
 class Bitboard {
@@ -30,7 +30,7 @@ public:
     auto outerIterator (int x, int y);
 };
 
-typedef struct Pieces
+struct Pieces
 {   // Define piece values & such here
 
     Bitboard positions;

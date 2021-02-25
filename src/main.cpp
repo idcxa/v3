@@ -57,7 +57,6 @@ namespace CT
 		void setup();
 		void loop();
 	};
-
 };
 
 using namespace CT; ChessEngine ct;
@@ -71,7 +70,7 @@ int main(int argc, char* argv[]) {
     /* Search, decides which moves look most promising to calculate first */
 
     /* Evaluator */
-    Position::set();
+    Position::set("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e2e4");
 
     UCI::loop(argc, argv);
 
