@@ -1,26 +1,67 @@
-#include "iostream"
 #include "stdlib.h"
+#include "iostream"
 #include "sstream"
 #include "string"
+#include "cassert"
 
 #include "uci.hpp"
 
 using namespace std;
+
+#define VERS "0.1"
+
+
+namespace {
+
+    const char* startpos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+
+    void position(istringstream &is) {
+
+        string token, fen;
+        is >> token;
+
+        if (token == "startpos") {
+            fen = startpos;
+            is >> token;
+        } else if (token == "fen")
+            // while token is not moves
+            // keep adding values to fen
+            while (is >> token && token != "moves")
+                fen += token + " ";
+        else
+            return;
+
+        cout << fen << endl;
+    }
+} // namespace
+
 void UCI::loop (int argc, char* argv[]) {
-	string cmd, token;
+    string cmd, token;
 
-	for (int i = 1; i < argc; ++i) {
-		cmd += string(argv[i]) + " ";
-	}
+    for (int i = 1; i < argc; ++i) {
+            cmd += string(argv[i]) + " ";
+    }
 
-	do {
-		istringstream is (cmd);
-		is >> skipws >> token;
+    do {
+        getline(cin, cmd);
 
-		if (token == "quit" || token == "stop") {
-			break;
-		}
+        istringstream is (cmd);
+        is >> skipws >> token;
 
-	} while (token == "quit");
+        if (token == "quit" || token == "stop")
+            break;
+        else if (token == "uci")
+            cout << "id name CTEngine " << VERS << endl
+            << "id auther Izzy Cassell\n"
+            << "uciok" << endl;
+        else if (token == "isready")
+            cout << "readyok" << endl;
+        else if (token == "position")
+            position(is);
+        else if (token == "go")
+            cout << token << endl;
+
+
+    } while (token != "quit");
 }
 
