@@ -4,7 +4,7 @@ CFLAGS = -O
 SRCDIR = src
 
 ctengine: 	main.o uci.o position.o
-		$(CC) $(CFLAGS)	-o ctengine main.o uci.o
+		$(CC) $(CFLAGS)	-o ctengine main.o uci.o position.o
 
 main.o:		${SRCDIR}/main.cpp
 		$(CC) $(CFLAG)	-c ${SRCDIR}/main.cpp
