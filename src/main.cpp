@@ -17,7 +17,7 @@
 * all command strings the engine receives will end with '\n',
   also all commands the GUI receives should end with '\n',
   Note: '\n' can be 0x0c or 0x0a0c or any combination depending on your OS.
-  If you use Engine und GUI in the same OS this should be no problem if you cummunicate in text mode,
+  If you use Engine und GUI in the same OS this should be no problem if you communicate in text mode,
   but be aware of this when for example running a Linux engine in a Windows GUI.
 
 * The engine will always be in forced mode which means it should never start calculating

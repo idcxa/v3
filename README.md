@@ -1,13 +1,20 @@
-# CT.cpp
+# Chess Trainer Engine
 
 ## Compiling
 The project uses both Meson & CMake for your convenience.
 
-### Meson
-`meson build; ninja -C "build" install`
+### OSX / GNU + Linux
+**CMake:** 
 
-### OSX/ GNU + Linux
-`make OSX`
+`make; make clean`
+
+**Meson:** 
+
+`meson build; ninja -C "build" install`
 
 ### Windows
 See Meson build instructions.
+
+
+#### 
+*Thanks to the Stockfish devs for ideas on program architecture*
