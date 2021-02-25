@@ -41,7 +41,8 @@
 #include "fstream"
 #include "algorithm"
 
-#include "ct.hpp"
+//#include "main.hpp"
+#include "spec/fixtures/uci.hpp"
 
 #define PROJECT_NAME "ChessTrainer.c++"
 
@@ -59,11 +60,18 @@ namespace CT
 };
 
 using namespace CT; ChessEngine ct;
-int main(int argc, char **argv) {
-    if(argc != 1) {
-        std::cout << argv[0] <<  "takes no arguments.\n";
-        return 1;
-    }
-    std::cout << "This is project " << PROJECT_NAME << ".\n";
+int main(int argc, char* argv[]) {
+    /* IO service */
+
+    /* Store position from FEN and moves in bitboards */
+
+    /* Valid move finder */
+
+    /* Search, decides which moves look most promising to calculate first */
+
+    /* Evaluator */
+
+    UCI::loop(argc, argv);
+
     return 0;
 }
