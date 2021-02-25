@@ -37,11 +37,33 @@
 
 */
 
-#include <iostream>
+#include "iostream"
+#include "fstream"
+#include "algorithm"
 
-using namespace std;
+#include "ct.hpp"
 
-int main() {
-    <++>
+#define PROJECT_NAME "ChessTrainer.c++"
+
+namespace CT
+{	// uwu
+	class ChessEngine {
+	public:
+		void Move();
+
+	private:
+		void setup();
+		void loop();
+	};
+	
+};
+
+using namespace CT; ChessEngine ct;
+int main(int argc, char **argv) {
+    if(argc != 1) {
+        std::cout << argv[0] <<  "takes no arguments.\n";
+        return 1;
+    }
+    std::cout << "This is project " << PROJECT_NAME << ".\n";
+    return 0;
 }
-

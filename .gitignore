@@ -1,1 +1,11 @@
-Stockfish/
+# Compiled source files & other misc. junk
+*a.out*
+a.out
+
+.DS_Store
+.discover
+
+# Meson stuff
+build
+builddir
+
