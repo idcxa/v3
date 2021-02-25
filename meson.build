@@ -8,7 +8,6 @@ project(
 )
 
 i18n = import('i18n')
-i18n = import('i18n')
 
 add_global_arguments(
 	'-lstdc++', '-O', 
