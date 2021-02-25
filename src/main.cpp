@@ -73,5 +73,7 @@ int main(int argc, char* argv[]) {
 
     UCI::loop(argc, argv);
 
+    std::cout << "hiiii izzy <3" << std::endl;
+
     return 0;
 }

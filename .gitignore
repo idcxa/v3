@@ -3,8 +3,13 @@ a.out
 a.out.dSYM/
 *.out
 *.o
+
+*.gch
+
+# Binary file
 ctengine
 
+# Trash
 .DS_Store
 .discover
 
@@ -12,7 +17,6 @@ ctengine
 build
 builddir
 
-*.gch
 
 #misc
 Stockfish/

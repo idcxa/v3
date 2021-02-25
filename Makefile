@@ -3,8 +3,8 @@ CC = g++
 
 SRCDIR = src
 
-CTEngine: main.o uci.o
-	$(CC) $(CFLAGS)	-o	CTEngine main.o uci.o
+ctengine: main.o uci.o
+	$(CC) $(CFLAGS)	-o	ctengine main.o uci.o
 
 main.o:	${SRCDIR}/main.cpp
 	$(CC) $(CFLAG)	-c ${SRCDIR}/main.cpp
