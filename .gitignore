@@ -2,6 +2,7 @@
 a.out
 a.out.dSYM/
 *.out
+*.o
 
 .DS_Store
 .discover
