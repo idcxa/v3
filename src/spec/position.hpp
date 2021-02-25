@@ -11,17 +11,19 @@
  *
 **/
 
-class BitBoard {
+void bitscan();
+
+class Bitboard {
 private:
-    std::bitset<64> board;
-	void initalise ();
+    void initalise ();
 public:
-    auto operator () (int x, int y){
+    std::bitset<64> board;
+    void set(int x, int y, bool n){
         assert( 0 <= x && x <= 7);
         assert( 0 <= y && y <=7);
-        return board [ 8 * y + x ];
+        board [ 8 * y + x ] = n;
     }
-	auto output (int x, int y);
-	auto innerIterator (int x, int y);
-	auto outerIterator (int x, int y);
+    auto output (int x, int y);
+    auto innerIterator (int x, int y);
+    auto outerIterator (int x, int y);
 };
