@@ -1,5 +1,12 @@
 # pragma once
 
 namespace UCI {
-	void loop(int argc, char* argv[]);
+	
+	class UCIData {
+	public:
+		void position(istringstream &is);
+	private:
+		void loop(int argc, char* argv[]);
+	};
+	
 }
