@@ -1,27 +1,49 @@
 #include "iostream"
 #include "sstream"
+#include "stdio.h"
+#include "ctype.h"
 
 #include "position.hpp"
 
 using namespace std;
 
-void Position::set(string FEN, string play) {
+void Position::set(string FEN, string movelist) {
 
+    char token;
     istringstream ss(FEN);
-    string token;
+
+    char board[PL];
+
+    ss >> std::noskipws;
 
     /* loop through FEN */
-    while (ss >> token) {
-        cout << token;
-    }origin/testing
-    cout << endl;
-    Bitboard test;
+    int i = 0;
+    string p = " pnbrqk PNBRQK ";
+    while ((ss >> token) && !isspace(token)) {
+        if (isdigit(token)) {
+            for (int j = 0; j <= 7; j++) {
+                board[j+i] = '.';
+            }
+            i += (token - 48);
+        }
 
-    test.set(5,5,true);
-    test.board[5] = 1;
-    for (std::size_t i = 0; i < test.board.size(); ++i) {
-        //std::cout << "test.board[" << i << "]: " << test.board[i] << '\n';
+        else if (token == '/') {
+            i -= 0;
+        }
+
+        else if (p.find(token)) {
+            board[i] = token;
+            i++;
+        }
+
     }
-    cout << "position.cpp" << endl;
+
+    puts("\n");
+    for (int i = 0; i <= 7; i++) {
+        for (int j = 0; j <= 7; j++) {
+            printf("%c ", board[i*8 + j]);
+        }
+        printf("\n");
+    }
 }
 
