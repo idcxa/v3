@@ -70,7 +70,9 @@ int main(int argc, char* argv[]) {
     /* Search, decides which moves look most promising to calculate first */
 
     /* Evaluator */
-    Position::set("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e2e4");
+    Position::set("4p3/8/8/1p2R2p/4p3/8/8/8 b - - 0 1", "");
+
+    std::cout << Position::bestmove() << std::endl;
 
     UCI::loop(argc, argv);
 
