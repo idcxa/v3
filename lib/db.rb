@@ -2,6 +2,8 @@
 
 require 'net/http'
 require 'json'
+#require 'ffi'
+#require 'rice'
 
 # TODO don't keep these as globals
 fen	= "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
@@ -55,8 +57,9 @@ def parse(fen, moves)
 	return movestable
 end
 
-
-def decide_next_move
+# => TODO implement this function later if wanted / needed
+=begin
+def decide_next_move(fen, moves)
 <<-DOC
 	`decide_next_move` 
 
@@ -64,10 +67,12 @@ def decide_next_move
 	moveslist = parse(fen, moves)
 
 	begin
-		raise 'uwu!'
-	rescue Stderr => e
+		
+	rescue STDERR => e
 		puts "uwuwuwu: #{e.inspect}"
 	end
 
 	return possiblemoves
-end
+end		# function
+=end	# comment
+

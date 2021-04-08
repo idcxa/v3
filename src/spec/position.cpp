@@ -16,6 +16,36 @@ string bw = " pnbrqk PNBRQK ";
 string black = "pnbrqk";
 string white = "PNBRQK";
 
+template<typename M>
+concept Move_vertically = requires(M rank, M file) {
+    typename M::value_type;
+    typename RB<M>;
+    typename FB<M>;
+
+    for (int i = 0; i <= 7; i++) {
+        if (!rankbreak) {
+            board.attacking.set(rank, i, true);
+        }
+        //board.attacking.set(i, file, true);
+        if (!black.find(board.piecepositions[rank*8 + i]) && board.colour == 'b') {
+            if (i < file) {
+                for (int j = i-1; j >= 0; j--) {
+                    board.attacking.set(rank,j,false);
+                }
+            } else if (i > file) {
+                board.attacking.set(rank,i,true);
+                rankbreak = true;
+            }
+        }   
+    }   // end for
+}   // end concept
+
+concept move_horizontally = requires(M rank, M file) {
+    return([=, this]  )
+}
+
+void f(std::integral auto);
+
 void rook(int rank, int file) {
     bool rankbreak = false;
     bool filebreak = false;
