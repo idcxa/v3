@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -O -std=c++2a -lstdc++ -fcoroutines
+CXXFLAGS = -O -std=c++2a -lstdc++
 
 SRCDIR = src
 

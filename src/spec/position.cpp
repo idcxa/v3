@@ -3,12 +3,13 @@
 #include "stdio.h"
 #include "ctype.h"
 
+#include "future"
+
 #include "position.hpp"
 
 using namespace std;
 
 BoardData board;
-export position;
 
 void Position::validmoves() {
 }
@@ -16,32 +17,6 @@ void Position::validmoves() {
 string bw = " pnbrqk PNBRQK ";
 string black = "pnbrqk";
 string white = "PNBRQK";
-
-template<typename M>
-concept Move_vertically = requires(M rank, M file) {
-    typename M::value_type;
-    typename RB<M>;
-    typename FB<M>;
-
-    for (int i = 0; i <= 7; i++) {
-        if (!rankbreak) {
-            board.attacking.set(rank, i, true);
-        }
-        //board.attacking.set(i, file, true);
-        if (!black.find(board.piecepositions[rank*8 + i]) && board.colour == 'b') {
-            if (i < file) {
-                for (int j = i-1; j >= 0; j--) {
-                    board.attacking.set(rank,j,false);
-                }
-            } else if (i > file) {
-                board.attacking.set(rank,i,true);
-                rankbreak = true;
-            }
-        }   
-    }   // end for
-}   // end concept
-
-void f(std::integral auto);
 
 void rook(int rank, int file) {
     bool rankbreak = false;
@@ -141,8 +116,8 @@ void Position::set(string FEN, string movelist) {
     /* pieces */
     for (int i = 0; i <= 7; i++) {
         for (int j = 0; j <= 7; j++) {
-    	    switch(board.piecepositions[i*8 + j]) {
-    		case 'R':
+            switch(board.piecepositions[i*8 + j]) {
+    		  case 'R':
     		    rook(i, j);
     		    break;
     	    }
@@ -150,25 +125,27 @@ void Position::set(string FEN, string movelist) {
     }
 
     /* print board */
-    if (board.colour == 'w')
+    if (board.colour == 'w') {
         printf("\nWhite to move\n");
-    else
+    } else {
         printf("\nBlack to move\n");
+    }
+
     printf("===============\n");
     for (int i = 0; i <= 7; i++) {
         for (int j = 0; j <= 7; j++) {
-	    if (board.attacking.output(i,j) == true)
-		printf("x ");
-	    else if (board.piecepositions[i*8 + j] == '1')
+	       if (board.attacking.output(i,j) == true)
+		      printf("x ");
+	        else if (board.piecepositions[i*8 + j] == '1')
                 printf(". ");
             else
                 printf("%c ", board.piecepositions[i*8 + j]);
-        }
+            }
         printf("\n");
     }
     printf("===============\n");
 }
 
-cppcoro::task<string> Position::bestmove() {
-    co_return "bestmove idk pondering cock";
+string Position::bestmove() {
+    return "bestmove idk pondering cock";
 }
