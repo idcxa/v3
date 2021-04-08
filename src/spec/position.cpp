@@ -9,33 +9,67 @@ using namespace std;
 
 BoardData board;
 
+void Position::validmoves() {
+}
+
+string bw = " pnbrqk PNBRQK ";
+string black = "pnbrqk";
+string white = "PNBRQK";
+
+void rook(int rank, int file) {
+    bool rankbreak = false;
+    bool filebreak = false;
+    for (int i = 0; i <= 7; i++) {
+	if (!rankbreak) {
+	    board.attacking.set(rank, i, true);
+	}
+	//board.attacking.set(i, file, true);
+	if (!black.find(board.piecepositions[rank*8 + i]) && board.colour == 'b') {
+	    if (i < file) {
+		for (int j = i-1; j >= 0; j--) {
+		    board.attacking.set(rank,j,false);
+		}
+	    } else if (i > file) {
+		board.attacking.set(rank,i,true);
+		rankbreak = true;
+	    }
+	}
+
+    }
+    //board.attacking.set(rank,file, false);
+}
+
+void bishop() {
+}
+
+void queen() {
+}
+
+void pawn() {
+}
+
+void king() {
+}
+
 void Position::set(string FEN, string movelist) {
 
+    //board.attacking.set(5, 5, true);
     char token;
     istringstream ss(FEN);
-
-    board.checking.set(5,5, true);
-
-    board.colour = 'b';
 
     ss >> std::noskipws;
 
     /* piece positions */
     int i = 0;
-    string p = " pnbrqk PNBRQK ";
     while ((ss >> token) && !isspace(token)) {
         if (isdigit(token)) {
-            for (int j = 0; j <= 7; j++) {
+	    for (int j = 0; j <= 7; j++)
                 board.piecepositions[j+i] = '1';
-            }
             i += (token - 48);
         }
-
-        else if (token == '/') {
+        else if (token == '/')
             i -= 0;
-        }
-
-        else if (p.find(token)) {
+        else if (bw.find(token)) {
             board.piecepositions[i] = token;
             i++;
         }
@@ -77,20 +111,28 @@ void Position::set(string FEN, string movelist) {
     ss >> token;
     board.movenumber = token - 48;
 
-
-    //ss >> token;
-    //cout << token;
+    /* pieces */
+    for (int i = 0; i <= 7; i++) {
+        for (int j = 0; j <= 7; j++) {
+	    switch(board.piecepositions[i*8 + j]) {
+		case 'R':
+		    rook(i, j);
+		    break;
+	    }
+	}
+    }
 
     /* print board */
     if (board.colour == 'w')
         printf("\nWhite to move\n");
     else
         printf("\nBlack to move\n");
-
     printf("===============\n");
     for (int i = 0; i <= 7; i++) {
         for (int j = 0; j <= 7; j++) {
-            if (board.piecepositions[i*8 + j] == '1')
+	    if (board.attacking.output(i,j) == true)
+		printf("x ");
+	    else if (board.piecepositions[i*8 + j] == '1')
                 printf(". ");
             else
                 printf("%c ", board.piecepositions[i*8 + j]);

@@ -24,6 +24,7 @@ enum Pieces : char {
 
 namespace Position {
     void set(std::string FEN, std::string play);
+    void validmoves();
     std::string bestmove();
 }
 
@@ -32,12 +33,14 @@ private:
     void initalise ();
     std::bitset<64> board;
 public:
-    void set(int x, int y, bool n){
-        assert( 0 <= x && x <= 7);
-        assert( 0 <= y && y <=7);
-        board [ 8 * y + x ] = n;
+    void set(int x, int y, bool n) {
+        assert(0 <= x && x <= 7);
+        assert(0 <= y && y <=7);
+        board[8*y + x] = n;
     }
-    auto output (int x, int y);
+    bool output (int x, int y) {
+	return board[8*y + x];
+    }
     auto innerIterator (int x, int y);
     auto outerIterator (int x, int y);
 };
@@ -57,8 +60,8 @@ struct BoardData {
     int ply = 0;
     int movenumber = 0;
 
+    Bitboard attacking;
     Bitboard checking;
-    Bitboard attacked;
     Bitboard pinned;
 };
 

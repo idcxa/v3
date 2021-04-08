@@ -52,7 +52,7 @@ void UCI::loop (int argc, char* argv[]) {
             break;
         else if (token == "uci")
             cout << "id name CTEngine " << VERS << endl
-            << "id auther Izzy Cassell\n"
+            << "id author Izzy Cassell\n"
             << "uciok" << endl;
         else if (token == "isready")
             cout << "readyok" << endl;
