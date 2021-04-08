@@ -1,4 +1,4 @@
-image: g++
+image: gcc
 
 build:
   stage: build
