@@ -172,6 +172,6 @@ void Position::set(string FEN, string movelist) {
     printf("===============\n");
 }
 
-string Position::bestmove() {
-    return "bestmove idk pondering cock";
+cppcoro::task<string> Position::bestmove() {
+    co_return "bestmove idk pondering cock";
 }
