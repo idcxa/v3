@@ -72,6 +72,8 @@ int main(int argc, char* argv[]) {
     /* Evaluator */
     Position::set("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e2e4");
 
+    std::cout << Position::bestmove() << std::endl;
+
     UCI::loop(argc, argv);
 
     std::cout << "hiiii izzy <3" << std::endl;
