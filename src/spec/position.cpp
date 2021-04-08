@@ -3,11 +3,14 @@
 #include "stdio.h"
 #include "ctype.h"
 
+#include "cppcoro/task.hpp"
+
 #include "position.hpp"
 
 using namespace std;
 
 BoardData board;
+export position;
 
 void Position::validmoves() {
 }
@@ -39,10 +42,6 @@ concept Move_vertically = requires(M rank, M file) {
         }   
     }   // end for
 }   // end concept
-
-concept move_horizontally = requires(M rank, M file) {
-    return([=, this]  )
-}
 
 void f(std::integral auto);
 
