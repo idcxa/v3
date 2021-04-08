@@ -2,14 +2,7 @@
 #include "bitset"
 #include "cassert"
 #include "cstdint"
-
-/**	! Stuff we need	**
- *
- * 		checked
- *		attack-threat
- *		bitboards
- *
-**/
+#include "string"
 
 enum BoardPositions : int {
     A1, B1, C1, D1, E1, F1, G1, H1,
@@ -31,6 +24,7 @@ enum Pieces : char {
 
 namespace Position {
     void set(std::string FEN, std::string play);
+    std::string bestmove();
 }
 
 class Bitboard {
@@ -46,6 +40,26 @@ public:
     auto output (int x, int y);
     auto innerIterator (int x, int y);
     auto outerIterator (int x, int y);
+};
+
+struct Castling {
+    bool wk;
+    bool wq;
+    bool bk;
+    bool bq;
+};
+
+struct BoardData {
+    char piecepositions[64];
+    char colour;
+    Castling castling;
+    std::string enpassant = "";
+    int ply = 0;
+    int movenumber = 0;
+
+    Bitboard checking;
+    Bitboard attacked;
+    Bitboard pinned;
 };
 
 /**
