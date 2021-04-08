@@ -1,5 +1,7 @@
-
 image: gcc
+
+include:
+  - template: Code-Quality.gitlab-ci.yml
 
 build:
   stage: build
