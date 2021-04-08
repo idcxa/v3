@@ -3,8 +3,6 @@
 #include "stdio.h"
 #include "ctype.h"
 
-#include "cppcoro/task.hpp"
-
 #include "position.hpp"
 
 using namespace std;
