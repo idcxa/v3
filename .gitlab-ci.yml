@@ -1,5 +1,8 @@
 image: gcc
 
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
 build:
   stage: build
   # instead of calling g++ directly you can also use some build toolkit like make
