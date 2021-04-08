@@ -15,3 +15,9 @@ build:
     paths:
       - ctengine
 
+# run tests using the binary built before
+test:
+  stage: test
+  script:
+    - ./ctengine
+
