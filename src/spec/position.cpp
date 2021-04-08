@@ -49,20 +49,20 @@ void rook(int rank, int file) {
     bool rankbreak = false;
     bool filebreak = false;
     for (int i = 0; i <= 7; i++) {
-	if (!rankbreak) {
-	    board.attacking.set(rank, i, true);
-	}
-	//board.attacking.set(i, file, true);
-	if (!black.find(board.piecepositions[rank*8 + i]) && board.colour == 'b') {
-	    if (i < file) {
-		for (int j = i-1; j >= 0; j--) {
-		    board.attacking.set(rank,j,false);
-		}
-	    } else if (i > file) {
-		board.attacking.set(rank,i,true);
-		rankbreak = true;
-	    }
-	}
+    	if (!rankbreak) {
+    	    board.attacking.set(rank, i, true);
+    	}
+    	//board.attacking.set(i, file, true);
+    	if (!black.find(board.piecepositions[rank*8 + i]) && board.colour == 'b') {
+    	    if (i < file) {
+    		for (int j = i-1; j >= 0; j--) {
+    		    board.attacking.set(rank,j,false);
+    		}
+    	    } else if (i > file) {
+    		board.attacking.set(rank,i,true);
+    		rankbreak = true;
+    	    }
+    	}
 
     }
     //board.attacking.set(rank,file, false);
@@ -143,12 +143,12 @@ void Position::set(string FEN, string movelist) {
     /* pieces */
     for (int i = 0; i <= 7; i++) {
         for (int j = 0; j <= 7; j++) {
-	    switch(board.piecepositions[i*8 + j]) {
-		case 'R':
-		    rook(i, j);
-		    break;
-	    }
-	}
+    	    switch(board.piecepositions[i*8 + j]) {
+    		case 'R':
+    		    rook(i, j);
+    		    break;
+    	    }
+    	}
     }
 
     /* print board */
