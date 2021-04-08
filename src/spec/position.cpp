@@ -18,25 +18,36 @@ string bw = " pnbrqk PNBRQK ";
 string black = "pnbrqk";
 string white = "PNBRQK";
 
+/* update board.attacking, board.checking and board.pinned */
 void rook(int rank, int file) {
     bool rankbreak = false;
     bool filebreak = false;
     for (int i = 0; i <= 7; i++) {
     	if (!rankbreak) {
-    	    board.attacking.set(rank, i, true);
+    	    //board.attacking.set(rank, i, true);
     	}
     	//board.attacking.set(i, file, true);
-    	if (!black.find(board.piecepositions[rank*8 + i]) && board.colour == 'b') {
+    	if ((!black.find(board.piecepositions[rank*8 + i]) && board.colour == 'b') || (!white.find(board.piecepositions[rank*8 + i]) && board.colour == 'w')) {
     	    if (i < file) {
     		for (int j = i-1; j >= 0; j--) {
     		    board.attacking.set(rank,j,false);
     		}
     	    } else if (i > file) {
-    		board.attacking.set(rank,i,true);
+    		//board.attacking.set(rank,i,true);
     		rankbreak = true;
     	    }
     	}
-
+    	if ((!black.find(board.piecepositions[i*8 + file]) && board.colour == 'b') || (!white.find(board.piecepositions[i*8 + file]) && board.colour == 'w')) {
+	    //board.attacking.set(i, file, true);
+    	    if (i < rank) {
+    		for (int j = i-1; j >= 0; j--) {
+    		    board.attacking.set(j,file,false);
+    		}
+    	    } else if (i > rank) {
+    		//board.attacking.set(i,file,true);
+    		rankbreak = true;
+    	    }
+    	}
     }
     //board.attacking.set(rank,file, false);
 }
@@ -52,6 +63,10 @@ void pawn() {
 
 void king() {
 }
+
+/*
+4p3/8/8/1p2R2p/4p3/8/8/8 b - - 0 1
+*/
 
 void Position::set(string FEN, string movelist) {
 
@@ -117,8 +132,8 @@ void Position::set(string FEN, string movelist) {
     for (int i = 0; i <= 7; i++) {
         for (int j = 0; j <= 7; j++) {
             switch(board.piecepositions[i*8 + j]) {
-    		  case 'R':
-    		    rook(i, j);
+		case 'R':
+		    rook(i, j);
     		    break;
     	    }
     	}
