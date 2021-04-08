@@ -1,4 +1,4 @@
-image: make
+image: g++
 
 build:
   stage: build
