@@ -18,6 +18,20 @@ string bw = " pnbrqk PNBRQK ";
 string black = "pnbrqk";
 string white = "PNBRQK";
 
+/*
+
+- gather positions of every piece on the board 
+- make an algorithm for a piece to find its closest pieces
+    - work in stuff like pinning and w/e based on that
+    - if things are behind the king then it's pinned
+
+attacking = ->
+    iterate through the file in different directions starting from the piece
+    when a piece is found, mark it as attacked
+    if the king is behind it, mark it as pinned
+
+*/
+
 /* update board.attacking, board.checking and board.pinned */
 void rook(int rank, int file) {
     bool rankbreak = false;
