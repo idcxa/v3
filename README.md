@@ -3,11 +3,11 @@
 ## Compiling
 The project uses both Meson & CMake for your convenience.
 
-### Meson
+### OSX with Meson
 `meson build; ninja -C "build" install`
 
-### OSX/ GNU + Linux
-`make OSX`
+### Linux
+`make; make clean`
 
 ### Windows
-See Meson build instructions.
+`good luck`
