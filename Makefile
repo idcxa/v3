@@ -4,7 +4,7 @@ CXXFLAGS = -O -std=c++2a -lstdc++
 SRCDIR = src
 
 ctengine: 	main.o uci.o position.o
-		$(CXX) $(CXXFLAGS)	-o ctengine main.o uci.o position.o
+		$(CXX) $(CXXFLAGS)	-o ctengngine main.o uci.o position.o
 
 main.o:		${SRCDIR}/main.cpp
 		$(CXX) $(CXXFLAGS)	-c ${SRCDIR}/main.cpp
