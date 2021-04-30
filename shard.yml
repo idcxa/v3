@@ -1,0 +1,13 @@
+name: amethyst
+version: 0.1.0
+
+authors:
+  - cxssie-mira <hana19.nf@protonmail.ch>
+
+targets:
+  amethyst:
+    main: src/amethyst.cr
+
+crystal: 1.0.0
+
+license: ISC

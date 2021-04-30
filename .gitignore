@@ -1,22 +1,5 @@
-# Compiled source files & other misc. junk
-a.out
-a.out.dSYM/
-*.out
-*.o
-
-*.gch
-
-# Binary file
-ctengine
-
-# Trash
-.DS_Store
-.discover
-
-# Meson stuff
-build
-builddir
-
-
-#misc
-Stockfish/
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
