@@ -39,11 +39,10 @@
 
 #include "iostream"
 #include "fstream"
-#include "algorithm"
 
 //#include "main.hpp"
-#include "spec/uci.hpp"
-#include "spec/position.hpp"
+#include "uci.hpp"
+#include "position.hpp"
 
 #define PROJECT_NAME "ChessTrainer.c++"
 
@@ -70,13 +69,18 @@ int main(int argc, char* argv[]) {
     /* Search, decides which moves look most promising to calculate first */
 
     /* Evaluator */
-    Position::set("4p3/8/8/1p2R2p/4p3/8/8/8 b - - 0 1", "");
+	std::string fen;
+	for (int i = 1; i <= argc-1; i++) {
+		std::string tmp = argv[i];
+		fen = fen + tmp + " ";
+	}
+    Position::set(fen, "");
 
     std::cout << Position::bestmove() << std::endl;
 
     UCI::loop(argc, argv);
 
-    std::cout << "hiiii izzy <3" << std::endl;
+    std::cout << "hiiii izzy <3 welcome to" << PROJECT_NAME << std::endl;
 
     return 0;
 }
