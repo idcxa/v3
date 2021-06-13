@@ -7,3 +7,4 @@ namespace UCI {
         void position(std::istringstream &is);
     };
 }
+

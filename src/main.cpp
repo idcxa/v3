@@ -42,23 +42,12 @@
 
 //#include "main.hpp"
 #include "uci.hpp"
-#include "position.hpp"
+#include "pieces.hpp"
 
 #define PROJECT_NAME "ChessTrainer.c++"
 
-namespace CT
-{	// uwu
-	class ChessEngine {
-	public:
-		void Move();
+const char* startpos = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
-	private:
-		void setup();
-		void loop();
-	};
-};
-
-using namespace CT; ChessEngine ct;
 int main(int argc, char* argv[]) {
     /* IO service */
 
@@ -70,9 +59,13 @@ int main(int argc, char* argv[]) {
 
     /* Evaluator */
 	std::string fen;
-	for (int i = 1; i <= argc-1; i++) {
-		std::string tmp = argv[i];
-		fen = fen + tmp + " ";
+	if (argc >= 2) {
+		for (int i = 1; i <= argc-1; i++) {
+			std::string tmp = argv[i];
+			fen = fen + tmp + " ";
+		}
+	} else {
+		fen = startpos;
 	}
     Position::set(fen, "");
 

@@ -6,7 +6,6 @@
 
 using namespace std;
 
-BoardData board;
 
 void Position::validmoves() {
 }
@@ -63,17 +62,14 @@ void rook(int rank, int file) {
 	//board.attacking.set(rank,file, false);
 }
 
-void bishop() {
+/* template function to check all piece pointers at a given position */
+/*
+template<typename optrs, int x, int y>
+void checkAll(optrs objects) {
+	for (auto object : objects)
+		object.positions.output(x, y);
 }
-
-void queen() {
-}
-
-void pawn() {
-}
-
-void king() {
-}
+*/
 
 /*
    4p3/8/8/1p2R2p/4p3/8/8/8 b - - 0 1
