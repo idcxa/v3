@@ -2,8 +2,6 @@
 
 require 'net/http'
 require 'json'
-#require 'ffi'
-#require 'rice'
 
 # TODO don't keep these as globals
 fen	= "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
