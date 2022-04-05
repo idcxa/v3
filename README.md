@@ -1,8 +1,6 @@
-# CT.cpp
+# noobdestroyer
 
-## Compiling
-The project uses both Meson & CMake for your convenience.
-
+a chess engine that can beat you easily if youre bad at chess
 
 #### Recommended Compiling Instructions
 ### Linux
