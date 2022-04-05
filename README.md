@@ -1,6 +1,6 @@
-# noobdestroyer
+# Iteration 3 in my attempt to build a chess engine
 
-a chess engine that can beat you easily if youre bad at chess
+can beat you if youre bad
 
 #### Recommended Compiling Instructions
 ### Linux
